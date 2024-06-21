@@ -1,5 +1,5 @@
 import mButton2 from '../m-button2.vue'
-import { describe, it, expect } from 'vitest'
+import { expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 
 test('verificar o click do botão dois', async () => {
