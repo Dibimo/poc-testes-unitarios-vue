@@ -1,9 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted } from 'vue';
 
-const emit = defineEmits(['change'])
+const emit = defineEmits(['change', 'update:modelValue'])
+const model = defineModel<string>()
 
-const inputTextValue = ref('')
+const onInput = () => {
+  emit('change')
+}
+
+onMounted(() => {
+  console.log(model.value)
+})
+
+
 
 </script>
 
@@ -11,8 +20,8 @@ const inputTextValue = ref('')
     <input
       type="text"
       role="input-text"
-      v-model="inputTextValue"
-      @input="emit('change')"
+      v-model="model"
+      @change="onInput"
     >
 </template>
 
